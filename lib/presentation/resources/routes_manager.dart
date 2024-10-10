@@ -2,6 +2,7 @@ import 'package:e_commerce_app/presentation/forgot_password/forgot_password_view
 import 'package:e_commerce_app/presentation/login/login_view.dart';
 import 'package:e_commerce_app/presentation/main/main_view.dart';
 import 'package:e_commerce_app/presentation/register/register_view.dart';
+import 'package:e_commerce_app/presentation/resources/strings_manager.dart';
 import 'package:e_commerce_app/presentation/splash/splash_view.dart';
 import 'package:e_commerce_app/presentation/store_detailes/store_detailes_view.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,12 @@ class RouteGenerator {
         return MaterialPageRoute(
             builder: (context) => const StoreDetailesView());
       default:
-        return MaterialPageRoute(builder: (context) => const SplashView());
+        return MaterialPageRoute(
+            builder: (context) => const Scaffold(
+                  body: Center(
+                    child: Text(AppStrings.noRouteFound),
+                  ),
+                ));
     }
   }
 }
