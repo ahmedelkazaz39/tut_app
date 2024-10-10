@@ -51,6 +51,12 @@ ThemeData getApplicationTheme() {
       ),
     ),
 //! text theme
+    textTheme: TextTheme(
+      headlineLarge:
+          getBoldStyle(color: ColorManager.darkGrey, fontSize: FontSize.s16),
+      titleMedium:
+          getMediumStyle(color: ColorManager.lightGrey, fontSize: FontSize.s14),
+    ),
 
 //! input decoration theme
   );
