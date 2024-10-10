@@ -38,6 +38,18 @@ ThemeData getApplicationTheme() {
       buttonColor: ColorManager.primary,
       splashColor: ColorManager.lightPrimary,
     ),
+
+    //? Elevated button theme
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        textStyle:
+            getRegularStyle(color: ColorManager.white, fontSize: FontSize.s17),
+        backgroundColor: ColorManager.primary,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(AppSize.s12),
+        ),
+      ),
+    ),
 //! text theme
 
 //! input decoration theme
