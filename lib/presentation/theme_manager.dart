@@ -30,9 +30,16 @@ ThemeData getApplicationTheme() {
         fontSize: FontSize.s16,
       ),
     ),
+
+    //? button theme
+    buttonTheme: ButtonThemeData(
+      shape: const StadiumBorder(),
+      disabledColor: ColorManager.grey1,
+      buttonColor: ColorManager.primary,
+      splashColor: ColorManager.lightPrimary,
+    ),
 //! text theme
 
-//? button theme
 //! input decoration theme
   );
 }
