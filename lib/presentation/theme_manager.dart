@@ -59,5 +59,52 @@ ThemeData getApplicationTheme() {
     ),
 
 //! input decoration theme
+
+    inputDecorationTheme: InputDecorationTheme(
+      contentPadding: const EdgeInsets.all(AppPadding.p8),
+      hintStyle: getRegularStyle(
+        color: ColorManager.grey1,
+        fontSize: FontSize.s14,
+      ),
+      labelStyle: getMediumStyle(
+        color: ColorManager.grey1,
+        fontSize: FontSize.s14,
+      ),
+      errorStyle: getRegularStyle(
+        color: ColorManager.error,
+      ),
+      //! enable Border
+      enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: ColorManager.grey1,
+          width: AppSize.s1_5,
+        ),
+        borderRadius: BorderRadius.circular(AppSize.s8),
+      ),
+      //! focused Border
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: ColorManager.primary,
+          width: AppSize.s1_5,
+        ),
+        borderRadius: BorderRadius.circular(AppSize.s8),
+      ),
+      //! error Border
+      errorBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: ColorManager.error,
+          width: AppSize.s1_5,
+        ),
+        borderRadius: BorderRadius.circular(AppSize.s8),
+      ),
+      //! focused error border
+      focusedErrorBorder: OutlineInputBorder(
+        borderSide: BorderSide(
+          color: ColorManager.primary,
+          width: AppSize.s1_5,
+        ),
+        borderRadius: BorderRadius.circular(AppSize.s8),
+      ),
+    ),
   );
 }
