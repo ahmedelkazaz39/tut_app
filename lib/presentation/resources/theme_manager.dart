@@ -52,10 +52,26 @@ ThemeData getApplicationTheme() {
     ),
 //! text theme
     textTheme: TextTheme(
-      headlineLarge:
-          getBoldStyle(color: ColorManager.darkGrey, fontSize: FontSize.s16),
-      titleMedium:
-          getMediumStyle(color: ColorManager.lightGrey, fontSize: FontSize.s14),
+      headlineLarge: getSemiBoldStyle(
+        color: ColorManager.darkGrey,
+        fontSize: FontSize.s16,
+      ),
+      headlineMedium: getRegularStyle(
+        color: ColorManager.darkGrey,
+        fontSize: FontSize.s14,
+      ),
+      titleMedium: getMediumStyle(
+        color: ColorManager.lightGrey,
+        fontSize: FontSize.s14,
+      ),
+      bodyMedium: getRegularStyle(
+        color: ColorManager.grey1,
+        fontSize: FontSize.s12,
+      ),
+      bodySmall: getRegularStyle(
+        color: ColorManager.grey1,
+        fontSize: FontSize.s12,
+      ),
     ),
 
 //! input decoration theme
