@@ -1,5 +1,7 @@
 import 'package:e_commerce_app/presentation/resources/assets_manager.dart';
 import 'package:e_commerce_app/presentation/resources/color_manager.dart';
+import 'package:e_commerce_app/presentation/resources/constants_manager.dart';
+import 'package:e_commerce_app/presentation/resources/routes_manager.dart';
 import 'package:e_commerce_app/presentation/resources/strings_manager.dart';
 import 'package:e_commerce_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
@@ -47,6 +49,8 @@ class _OnboardingViewState extends State<OnboardingView> {
     return Scaffold(
       backgroundColor: ColorManager.white,
       appBar: AppBar(
+        backgroundColor: ColorManager.white,
+        elevation: AppSize.s0,
         systemOverlayStyle: SystemUiOverlayStyle(
           statusBarColor: ColorManager.white,
           statusBarBrightness: Brightness.dark,
@@ -65,24 +69,112 @@ class _OnboardingViewState extends State<OnboardingView> {
         },
       ),
       bottomSheet: Container(
-        height: AppSize.s100,
+        // height: AppSize.s100,
         color: ColorManager.white,
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
-                onPressed: () {},
-                child: const Text(
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, Routes.loginRoute);
+                },
+                child: Text(
                   AppStrings.skipButton,
                   textAlign: TextAlign.end,
+                  style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),
             ),
+            _getBottomSheetWidget(),
           ],
         ),
       ),
     );
+  }
+
+  Widget _getBottomSheetWidget() {
+    return Container(
+      color: ColorManager.primary,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          //left arrow
+          Padding(
+            padding: const EdgeInsets.all(AppPadding.p14),
+            child: GestureDetector(
+              child: SizedBox(
+                width: AppSize.s20,
+                height: AppSize.s20,
+                child: SvgPicture.asset(ImageAssets.leftArrow),
+              ),
+              onTap: () {
+                _pageController.animateToPage(
+                  _getPreviousIndex(),
+                  duration: const Duration(
+                      microseconds: AppConstants.sliderAnimationTime),
+                  curve: Curves.bounceOut,
+                );
+              },
+            ),
+          ),
+
+          Row(
+            children: [
+              for (int i = 0; i < _list.length; i++)
+                Padding(
+                  padding: const EdgeInsets.all(AppPadding.p8),
+                  child: _getProperCircle(i),
+                ),
+            ],
+          ),
+
+          Padding(
+            padding: const EdgeInsets.all(AppPadding.p14),
+            child: GestureDetector(
+              child: SizedBox(
+                width: AppSize.s20,
+                height: AppSize.s20,
+                child: SvgPicture.asset(ImageAssets.rightArrow),
+              ),
+              onTap: () {
+                _pageController.animateToPage(
+                  _getNextIndex(),
+                  duration: const Duration(
+                      microseconds: AppConstants.sliderAnimationTime),
+                  curve: Curves.bounceOut,
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  int _getPreviousIndex() {
+    int previousIndex = --_currentPage;
+    if (previousIndex == -2) {
+      previousIndex = _list.length - 1;
+    }
+    return previousIndex;
+  }
+
+  int _getNextIndex() {
+    int nextIndex = ++_currentPage;
+    if (nextIndex == 4) {
+      nextIndex = 0;
+    }
+    return nextIndex;
+  }
+
+  Widget _getProperCircle(int index) {
+    if (index == _currentPage) {
+      return SvgPicture.asset(ImageAssets.hollowCircle);
+    } else {
+      return SvgPicture.asset(ImageAssets.solidCircle);
+    }
   }
 }
 
