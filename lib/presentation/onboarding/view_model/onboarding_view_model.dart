@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/domain/models.dart';
 import 'package:e_commerce_app/presentation/base/base_view_model.dart';
 
 class OnboardingViewModel
@@ -31,3 +32,6 @@ abstract class OnboardingViewModelInputs {
 }
 
 abstract class OnboardingViewModelOutputs {}
+
+//! class pull data from view model  to view
+
