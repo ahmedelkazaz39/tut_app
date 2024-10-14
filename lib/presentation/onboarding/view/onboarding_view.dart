@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/domain/models.dart';
 import 'package:e_commerce_app/presentation/resources/assets_manager.dart';
 import 'package:e_commerce_app/presentation/resources/color_manager.dart';
 import 'package:e_commerce_app/presentation/resources/constants_manager.dart';
@@ -213,11 +214,4 @@ class OnboardingPage extends StatelessWidget {
       ],
     );
   }
-}
-
-class SliderObject {
-  String? title;
-  String? subTitle;
-  String? image;
-  SliderObject({this.title, this.subTitle, this.image});
 }
